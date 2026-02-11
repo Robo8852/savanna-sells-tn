@@ -1,65 +1,62 @@
-import Image from "next/image";
+import Hero from "@/components/sections/Hero";
+import ListingsGrid from "@/components/sections/ListingsGrid";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div>
+      <Hero />
+      <ListingsGrid />
+
+      {/* Bio / About Section */}
+      <section id="about" className="py-24 bg-white overflow-hidden">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid gap-16 md:grid-cols-2 items-center">
+            <div className="relative">
+              <div className="absolute -left-4 -top-4 h-full w-full border border-accent/20" />
+              <div className="relative h-[600px] w-full">
+                <img
+                  src="/local-expertise.jpg"
+                  alt="Savanna - Local Expertise"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+            <div>
+              <span className="mb-4 block text-sm font-medium uppercase tracking-[0.2em] text-accent">
+                Local Expertise
+              </span>
+              <h2 className="mb-8 text-4xl font-serif text-primary md:text-5xl">Meet Savanna</h2>
+              <p className="mb-6 text-lg text-primary/80">
+                With years of experience in the Tennessee real estate market, Savanna brings a personalized approach to every transaction. Whether you're buying your first home or selling a luxury estate, her commitment to excellence ensures a seamless experience.
+              </p>
+              <p className="mb-8 text-lg text-primary/80">
+                Now calling Franklin, TN home, she has an intimate knowledge of the local neighborhoods, schools, and market trends that make Middle Tennessee so special.
+              </p>
+              <button className="bg-primary px-8 py-4 text-white transition-all hover:bg-primary-light">
+                Read Full Bio
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section id="contact" className="py-24 bg-primary text-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="mb-6 text-4xl font-serif md:text-5xl">Ready to Start Your Journey?</h2>
+          <p className="mb-10 mx-auto max-w-2xl text-lg text-white/70">
+            Contact Savanna today for a complimentary market analysis or to schedule a viewing of our exclusive properties.
           </p>
+          <div className="flex flex-wrap justify-center gap-6">
+            <button className="bg-accent px-10 py-4 text-white font-semibold transition-all hover:bg-accent/90">
+              Contact Savanna
+            </button>
+            <button className="border border-white/20 px-10 py-4 font-semibold transition-all hover:bg-white/5">
+              Call (123) 456-7890
+            </button>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </section>
     </div>
   );
 }

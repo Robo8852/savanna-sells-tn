@@ -1,26 +1,94 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-primary: #1B3022;
+  --color-primary-light: #2D4635;
+  --color-secondary: #FAF9F6;
+  --color-accent: #AE8D4F;
+  --color-sage: #8B9D83;
+
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #FAF9F6;
+  --foreground: #1B3022;
+
+  --card: #ffffff;
+  --card-foreground: #1B3022;
+
+  --popover: #ffffff;
+  --popover-foreground: #1B3022;
+
+  --primary: #1B3022;
+  --primary-foreground: #FAF9F6;
+
+  --secondary: #F4F4F5;
+  --secondary-foreground: #1B3022;
+
+  --muted: #F4F4F5;
+  --muted-foreground: #71717A;
+
+  --accent: #AE8D4F;
+  --accent-foreground: #ffffff;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #1B3022;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #0D1610;
+  --foreground: #FAF9F6;
+
+  --card: #1B3022;
+  --card-foreground: #FAF9F6;
+
+  --popover: #1B3022;
+  --popover-foreground: #FAF9F6;
+
+  --primary: #FAF9F6;
+  --primary-foreground: #1B3022;
+
+  --secondary: #2D4635;
+  --secondary-foreground: #FAF9F6;
+
+  --muted: #2D4635;
+  --muted-foreground: #A1A1AA;
+
+  --accent: #AE8D4F;
+  --accent-foreground: #1B3022;
+
+  --destructive: #7f1d1d;
+  --destructive-foreground: #FAF9F6;
+
+  --border: #2D4635;
+  --input: #2D4635;
+  --ring: #FAF9F6;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif), serif;
 }
