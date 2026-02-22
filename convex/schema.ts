@@ -34,6 +34,8 @@ export default defineSchema({
       v.literal("sold"),                            //   deal closed
       v.literal("hidden")                           //   not visible on site (draft or archived)
     ),
+    mlsNumber: v.optional(v.string()),              // Unique key for RealTracs upsert (Phase 2)
+    source: v.optional(v.string()),                 // "manual" | "csv" | "realtracks"
   })
     // Indexes = fast lookups (like a table of contents in a book)
     // Instead of scanning every row, the database jumps straight to matching entries

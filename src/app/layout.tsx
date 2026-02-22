@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import ConvexClientProvider from "@/components/providers/ConvexClientProvider";
 import "./globals.css";
 
 const inter = Inter({
@@ -29,11 +30,13 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} antialiased selection:bg-accent/30`}
       >
-        <div className="flex min-h-screen flex-col">
-          <Navbar />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
+        <ConvexClientProvider>
+          <div className="flex min-h-screen flex-col">
+            <Navbar />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
+        </ConvexClientProvider>
       </body>
     </html>
   );
