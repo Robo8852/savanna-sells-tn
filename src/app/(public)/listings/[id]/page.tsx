@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState } from "react";
+import { use, useState, useEffect } from "react";
 import { useQuery } from "convex/react";
 import { api } from "../../../../../convex/_generated/api";
 import type { Id } from "../../../../../convex/_generated/dataModel";
@@ -78,6 +78,13 @@ function ImageGallery({
   title: string;
 }) {
   const [current, setCurrent] = useState(0);
+  const [showHint, setShowHint] = useState(true);
+
+  // Hide swipe hint after 3 seconds or on first swipe
+  useEffect(() => {
+    const timer = setTimeout(() => setShowHint(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   function prev() {
     setCurrent((c) => (c === 0 ? images.length - 1 : c - 1));
@@ -94,6 +101,7 @@ function ImageGallery({
     _: unknown,
     info: { offset: { x: number } }
   ) {
+    setShowHint(false);
     if (info.offset.x < -SWIPE_THRESHOLD) {
       next();
     } else if (info.offset.x > SWIPE_THRESHOLD) {
@@ -152,6 +160,23 @@ function ImageGallery({
       <div className="absolute right-4 top-4 z-10 rounded-full bg-black/50 px-3 py-1 text-xs font-medium text-white">
         {current + 1} / {images.length}
       </div>
+
+      {/* Swipe hint */}
+      <AnimatePresence>
+        {showHint && images.length > 1 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            className="absolute inset-x-0 bottom-14 z-10 flex justify-center pointer-events-none"
+          >
+            <span className="rounded-full bg-black/50 px-4 py-1.5 text-sm font-medium text-white">
+              Swipe for more photos
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
