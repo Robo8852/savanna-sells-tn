@@ -3,6 +3,7 @@
 import { useQuery } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import ListingCard from "@/components/ui/ListingCard";
+import Link from "next/link";
 
 function ListingsSkeleton() {
   return (
@@ -47,9 +48,9 @@ export default function ListingsGrid() {
             </span>
             <h2 className="text-4xl font-serif text-primary md:text-5xl">Featured Listings</h2>
           </div>
-          <button className="border-b border-primary pb-1 font-medium text-primary transition-all hover:text-accent hover:border-accent">
+          <Link href="/listings" className="border-b border-primary pb-1 font-medium text-primary transition-all hover:text-accent hover:border-accent">
             View All Properties
-          </button>
+          </Link>
         </div>
 
         {listings === undefined ? (

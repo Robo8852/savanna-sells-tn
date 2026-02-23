@@ -205,7 +205,7 @@ export default function ListingDetailPage({
       <div className="container mx-auto px-6 py-12 md:px-12">
         {/* Back link */}
         <Link
-          href="/"
+          href="/listings"
           className="inline-flex items-center gap-1.5 text-sm text-primary/50 transition-colors hover:text-primary"
         >
           <ArrowLeft size={16} />

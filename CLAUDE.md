@@ -36,8 +36,11 @@
 **Also built (added to Phase 4):**
 - `src/app/(public)/listings/[id]/page.tsx` — Public listing detail page with image carousel, full property info, features tags, sticky "Schedule a Showing" sidebar (placeholder for Phase 5 lead modal)
 - `src/components/ui/ListingCard.tsx` — Now wraps in `<Link>` to `/listings/[id]`
+- Image carousel — crossfade transitions (AnimatePresence), arrow buttons, dot indicators (active dot stretches wider), mobile swipe via Framer Motion drag
 
-**NEXT SESSION:** Leo wants to discuss how the image carousel should transition/animate before continuing. After that: Step 6 (Leads page) → Step 7 (Polish).
+**Deployment:** Vercel connected to GitHub repo, auto-deploys on push to main. Convex URL: `savory-mockingbird-340` (shared dev/prod for now).
+
+**NEXT SESSION:** Step 6 (Leads page) → Step 7 (Polish).
 
 **No backend changes needed.** All Convex functions already exist.
 
