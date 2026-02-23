@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { useStorageUrl } from "@/hooks/useStorageUrl";
 import { formatPrice } from "@/lib/format";
+import ContactForm from "@/components/ui/ContactForm";
 
 // ─── STATUS LABELS ───
 
@@ -374,16 +375,14 @@ export default function ListingDetailPage({
               <h3 className="text-lg font-serif text-primary">
                 Interested in this property?
               </h3>
-              <p className="mt-2 text-sm text-primary/60">
+              <p className="mt-2 mb-6 text-sm text-primary/60">
                 Get in touch with Savanna to schedule a showing or ask questions
                 about this listing.
               </p>
-              <button className="mt-6 w-full rounded-lg bg-accent px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent/90">
-                Schedule a Showing
-              </button>
-              <button className="mt-3 w-full rounded-lg border border-primary/20 px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-secondary">
-                Call (123) 456-7890
-              </button>
+              <ContactForm
+                listingId={listing._id}
+                listingTitle={listing.title}
+              />
             </div>
           </motion.div>
         </div>

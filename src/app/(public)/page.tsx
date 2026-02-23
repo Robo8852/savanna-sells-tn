@@ -1,5 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import ListingsGrid from "@/components/sections/ListingsGrid";
+import ContactForm from "@/components/ui/ContactForm";
 
 export default function Home() {
   return (
@@ -42,18 +43,15 @@ export default function Home() {
 
       {/* CTA Section */}
       <section id="contact" className="py-24 bg-primary text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="mb-6 text-4xl font-serif md:text-5xl">Ready to Start Your Journey?</h2>
-          <p className="mb-10 mx-auto max-w-2xl text-lg text-white/70">
-            Contact Savanna today for a complimentary market analysis or to schedule a viewing of our exclusive properties.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6">
-            <button className="bg-accent px-10 py-4 text-white font-semibold transition-all hover:bg-accent/90">
-              Contact Savanna
-            </button>
-            <button className="border border-white/20 px-10 py-4 font-semibold transition-all hover:bg-white/5">
-              Call (123) 456-7890
-            </button>
+        <div className="container mx-auto px-6">
+          <div className="text-center">
+            <h2 className="mb-6 text-4xl font-serif md:text-5xl">Ready to Start Your Journey?</h2>
+            <p className="mb-10 mx-auto max-w-2xl text-lg text-white/70">
+              Contact Savanna today for a complimentary market analysis or to schedule a viewing of our exclusive properties.
+            </p>
+          </div>
+          <div className="mx-auto max-w-md rounded-xl bg-white p-6 shadow-lg">
+            <ContactForm />
           </div>
         </div>
       </section>
