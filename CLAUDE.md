@@ -6,9 +6,9 @@
 2. Read the relevant `SPEC-*.md` for whatever you're building
 3. Do NOT write code until you've read the docs
 
-## Current Task: Phase 3 — Wire Frontend to Convex
+## Completed Phases
 
-**Phase 1 is COMPLETE.** All backend functions exist and match the spec:
+**Phase 1 — Convex Backend: COMPLETE**
 - `convex/schema.ts` — listings + leads tables, mlsNumber + source fields
 - `convex/listings.ts` — getActive, getById, getByStatus, getAll, create, update, remove
 - `convex/leads.ts` — getAll, getByStatus, submit, updateStatus
@@ -16,12 +16,30 @@
 - `ConvexClientProvider` — wired into layout.tsx
 - `next.config.ts` — *.convex.cloud in remote image patterns
 
-**Next: Phase 3 — Frontend Refactor (Convex Data)**
-1. Create `src/lib/format.ts` — formatPrice utility
-2. Create `src/hooks/useStorageUrl.ts` — resolve Convex storage IDs to URLs
-3. Refactor `ListingsGrid.tsx` — swap MOCK_PROPERTIES for `useQuery(api.listings.getActive)`
-4. Add loading skeleton + empty state
-5. Extract `ListingCard` component
+**Phase 3 — Frontend Wiring: COMPLETE**
+- `src/lib/format.ts` — formatPrice utility
+- `src/hooks/useStorageUrl.ts` — resolves Convex storage IDs to URLs
+- `src/components/sections/ListingsGrid.tsx` — uses `useQuery(api.listings.getActive)` with loading skeleton + empty state
+- `src/components/ui/ListingCard.tsx` — extracted component with image resolution + price formatting
+
+## Current Task: Phase 4 — Admin Panel
+
+**7 steps, build one at a time:**
+1. ~~Route group restructure~~ — DONE. `(public)` route group with Navbar/Footer, root layout is shared shell.
+2. ~~Admin layout + sidebar~~ — DONE. `AdminSidebar.tsx` (dark green), `admin/layout.tsx`, placeholder dashboard.
+3. ~~Dashboard page~~ — DONE. Stat cards (Total/Active Listings, Total/New Leads) + recent leads table, live from Convex.
+4. ~~Listings table~~ — DONE. `/admin/listings` with status badges, edit links, delete with confirmation modal.
+5. ~~Listing form (create + edit)~~ — DONE. Shared `ListingForm.tsx` with multi-image upload, dropdown for propertyType, tag input for features. Routes: `/admin/listings/new` + `/admin/listings/[id]/edit`.
+6. Leads page — table with status dropdown to update lead status
+7. Polish — back links, navigation verification
+
+**Also built (added to Phase 4):**
+- `src/app/(public)/listings/[id]/page.tsx` — Public listing detail page with image carousel, full property info, features tags, sticky "Schedule a Showing" sidebar (placeholder for Phase 5 lead modal)
+- `src/components/ui/ListingCard.tsx` — Now wraps in `<Link>` to `/listings/[id]`
+
+**NEXT SESSION:** Leo wants to discuss how the image carousel should transition/animate before continuing. After that: Step 6 (Leads page) → Step 7 (Polish).
+
+**No backend changes needed.** All Convex functions already exist.
 
 ## Key Rules
 
@@ -32,6 +50,8 @@
 5. **Spec is source of truth.** If spec and code conflict, spec wins.
 6. **Explain new concepts.** Leo knows HTML, CSS, basic JS.
 7. **Domain language:** use `listing`, `lead`, `status`, `mlsNumber`, `source` — not generic terms.
+8. **Orchestrator pattern.** Claude is the orchestrator — use Task agents to build in parallel. Break work into independent pieces, launch agents, review their output, and coordinate.
+9. **Bi-directional prompting.** Ask Leo questions throughout the process, not just at the start. Encourage Leo to ask questions back. Building is a conversation, not a handoff.
 
 ## Tech Stack
 

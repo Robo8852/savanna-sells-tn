@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Bed, Bath, Square, MapPin } from "lucide-react";
 import { Doc } from "../../../convex/_generated/dataModel";
@@ -24,6 +25,7 @@ export default function ListingCard({ listing, index }: ListingCardProps) {
   const imageUrl = useStorageUrl(listing.images[0]);
 
   return (
+    <Link href={`/listings/${listing._id}`}>
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -83,5 +85,6 @@ export default function ListingCard({ listing, index }: ListingCardProps) {
         </div>
       </div>
     </motion.div>
+    </Link>
   );
 }
