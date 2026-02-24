@@ -65,6 +65,8 @@ function GalleryImage({
         alt={alt}
         fill
         className="object-cover"
+        sizes="100vw"
+        quality={90}
         priority
       />
     </motion.div>
