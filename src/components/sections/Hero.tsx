@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
@@ -26,13 +27,13 @@ export default function Hero() {
                             Savanna helps you find more than just a house. Discover the perfect place to call home in the heart of TN.
                         </p>
                         <div className="flex flex-col gap-4 sm:flex-row">
-                            <button className="flex items-center justify-center gap-2 bg-primary px-8 py-4 text-white transition-all hover:bg-primary-light">
+                            <Link href="/listings" className="flex items-center justify-center gap-2 bg-primary px-8 py-4 text-white transition-all hover:bg-primary-light">
                                 Browse Listings
                                 <ArrowRight size={18} />
-                            </button>
-                            <button className="border border-primary px-8 py-4 text-primary transition-all hover:bg-primary/5">
+                            </Link>
+                            <Link href="#contact" className="border border-primary px-8 py-4 text-center text-primary transition-all hover:bg-primary/5">
                                 Contact Savanna
-                            </button>
+                            </Link>
                         </div>
                     </motion.div>
                 </div>
