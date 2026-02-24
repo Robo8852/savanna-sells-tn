@@ -22,27 +22,38 @@
 - `src/components/sections/ListingsGrid.tsx` — uses `useQuery(api.listings.getActive)` with loading skeleton + empty state
 - `src/components/ui/ListingCard.tsx` — extracted component with image resolution + price formatting
 
-## Current Task: Phase 4 — Admin Panel
+**Phase 4 — Admin Panel: COMPLETE**
+- Route group restructure — `(public)` + `admin/` layout split
+- `AdminSidebar.tsx` — dark green sidebar with Dashboard, Listings, Leads links
+- Dashboard — stat cards + recent leads table, live from Convex
+- Listings table — `/admin/listings` with status badges, edit links, delete with confirmation modal
+- `ListingForm.tsx` — shared create/edit form with multi-image upload, dropdown for propertyType, tag input for features
+- Leads page — `/admin/leads` with filter tabs, status dropdown, expandable rows
+- Public listing detail — `/listings/[id]` with image carousel, full property info, features tags
+- Navigation polish — all back links verified, Navbar "Listings" link fixed to `/listings`
 
-**7 steps, build one at a time:**
-1. ~~Route group restructure~~ — DONE. `(public)` route group with Navbar/Footer, root layout is shared shell.
-2. ~~Admin layout + sidebar~~ — DONE. `AdminSidebar.tsx` (dark green), `admin/layout.tsx`, placeholder dashboard.
-3. ~~Dashboard page~~ — DONE. Stat cards (Total/Active Listings, Total/New Leads) + recent leads table, live from Convex.
-4. ~~Listings table~~ — DONE. `/admin/listings` with status badges, edit links, delete with confirmation modal.
-5. ~~Listing form (create + edit)~~ — DONE. Shared `ListingForm.tsx` with multi-image upload, dropdown for propertyType, tag input for features. Routes: `/admin/listings/new` + `/admin/listings/[id]/edit`.
-6. Leads page — table with status dropdown to update lead status
-7. Polish — back links, navigation verification
-
-**Also built (added to Phase 4):**
-- `src/app/(public)/listings/[id]/page.tsx` — Public listing detail page with image carousel, full property info, features tags, sticky "Schedule a Showing" sidebar (placeholder for Phase 5 lead modal)
-- `src/components/ui/ListingCard.tsx` — Now wraps in `<Link>` to `/listings/[id]`
-- Image carousel — crossfade transitions (AnimatePresence), arrow buttons, dot indicators (active dot stretches wider), mobile swipe via Framer Motion drag
+**Phase 5 — Lead Capture Form: COMPLETE**
+- `src/components/ui/ContactForm.tsx` — name, email, phone, preferred date/time, message
+- Submits to `api.leads.submit`, success state with "Savanna will be in touch soon"
+- Wired into listing detail page sidebar with `listingId`/`listingTitle` pre-filled
+- Button text adapts: "Schedule a Showing" on listing pages, "Send Message" otherwise
 
 **Deployment:** Vercel connected to GitHub repo, auto-deploys on push to main. Convex URL: `savory-mockingbird-340` (shared dev/prod for now).
 
-**NEXT SESSION:** Step 6 (Leads page) → Step 7 (Polish).
+**Domain:** `savannasellstn.com` on GoDaddy — not yet connected to Vercel. See `docs/domain-setup.md` for instructions.
 
-**No backend changes needed.** All Convex functions already exist.
+## Next Up
+
+**Phase 6 — Email Notifications (Resend)**
+- Install Resend, create `convex/email.ts` with `"use node"` directive
+- `sendLeadNotification` internal action — emails Savanna when a lead submits
+- Trigger from `leads.submit` via `ctx.scheduler.runAfter(0, ...)`
+
+**Phase 7 — Final Polish** (partially done)
+- ~~Navbar links~~ — DONE
+- `.gitignore` for `.convex/`
+- ESLint config to ignore `convex/_generated/`
+- Environment variables cleanup
 
 ## Key Rules
 
