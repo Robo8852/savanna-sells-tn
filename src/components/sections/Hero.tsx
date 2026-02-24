@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
     return (
-        <section className="relative h-screen min-h-[700px] overflow-hidden bg-secondary lg:h-[90vh]">
+        <section className="-mt-[80px] relative h-screen min-h-[700px] overflow-hidden bg-secondary lg:h-[90vh]">
             <div className="container mx-auto flex h-full items-center px-6 pt-20 lg:px-12 lg:pt-0">
                 <div className="z-20 w-full lg:w-1/2 lg:mt-8">
                     <motion.div
